@@ -2,9 +2,17 @@ const net = require("net");
 const fridge = require("./fridge");
 const Rpc = require("rpc-stream");
 const multiplex = require("multiplex");
+const fs = require("fs");
+const path = require("path");
+const tls = require("tls");
 
-const server = net.createServer(serverOpts);
-server.on("connection", handleConnection);
+const certsPath = path.join(path.resolve(".."), "certs");
+const serverOpts = {
+    key: fs.readFileSync(path.join(certsPath, "key.pem")),
+    cert: fs.readFileSync(path.join(certsPath, "certificate.pem"))
+};
+const server = tls.createServer(serverOpts);
+server.on("secureConnection", handleConnection);
 server.on("close", () => console.log("Server is now closed"));
 server.on("error", err => console.error(err));
 server.listen(8000);
