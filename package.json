@@ -3,10 +3,19 @@
     "version": "1.0.0",
     "main": "index.js",
     "license": "MIT",
-    "description": "fridge",
+    "description": "fridge iot",
     "scripts": {
         "setup": "bash ./setup.sh",
         "server": "node ./server/fridge_server",
         "client": "node ./client/fridge_client"
+    },
+    "dependencies": {
+        "chalk": "^2.4.2",
+        "commander": "^3.0.2",
+        "multiplex": "^6.7.0",
+        "pump": "^3.0.0",
+        "rpc-stream": "^2.1.2",
+        "split2": "^3.1.1",
+        "through2": "^3.0.1"
     }
 }
