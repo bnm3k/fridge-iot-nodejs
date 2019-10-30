@@ -37,7 +37,7 @@ module.exports = args => {
         .description(
             "connects to fridge server and receives streams with regards to the fridge's temperature warnings if above threshold"
         )
-        .action(({ _name: cmd }) => (cmdOpts = { cmd, reconnect: true }));
+        .action(({ _name: cmd }) => (cmdOpts = { cmd }));
 
     program
         .command("getFridgeState")
@@ -65,7 +65,7 @@ module.exports = args => {
         .description(
             "connects to fridge server and receives streams on its door state, ie when it's openned or closed"
         )
-        .action(({ _name: cmd }) => (cmdOpts = { cmd, reconnect: true }));
+        .action(({ _name: cmd }) => (cmdOpts = { cmd }));
 
     program
         .command("defrost")
