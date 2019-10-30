@@ -1,0 +1,12 @@
+{
+    "name": "fridge",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "description": "fridge",
+    "scripts": {
+        "setup": "bash ./setup.sh",
+        "server": "node ./server/fridge_server",
+        "client": "node ./client/fridge_client"
+    }
+}
