@@ -1,4 +1,3 @@
-const net = require("net");
 const fridge = require("./fridge");
 const Rpc = require("rpc-stream");
 const multiplex = require("multiplex");
@@ -6,7 +5,7 @@ const fs = require("fs");
 const path = require("path");
 const tls = require("tls");
 
-const certsPath = path.join(path.resolve(".."), "certs");
+const certsPath = path.resolve(path.dirname(__filename), "../certs");
 const serverOpts = {
     key: fs.readFileSync(path.join(certsPath, "key.pem")),
     cert: fs.readFileSync(path.join(certsPath, "certificate.pem"))
