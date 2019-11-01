@@ -1,7 +1,7 @@
 const rpc = require("rpc-stream");
 const chalk = require("chalk");
 
-function setupRpc(rpcConn, fridgeServer, { cmd, arg, reconnect }) {
+function setupRpc(rpcConn, fridgeServer, { cmd, arg}) {
     const rpcClient = rpc();
     rpcClient.pipe(rpcConn).pipe(rpcClient);
 
@@ -33,10 +33,10 @@ function setupRpc(rpcConn, fridgeServer, { cmd, arg, reconnect }) {
             remote.powerOff(getResponseHandler());
             break;
         case "getDoorState":
-            remote.getDoorState(getResponseHandler(!reconnect));
+            remote.getDoorState(getResponseHandler());
             break;
         case "getTemp":
-            remote.getTemp(getResponseHandler(!reconnect));
+            remote.getTemp(getResponseHandler());
             break;
         case "setTargetTemp":
             remote.setTargetTemp(arg, getResponseHandler());
